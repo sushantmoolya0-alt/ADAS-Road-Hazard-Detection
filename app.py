@@ -285,7 +285,7 @@ elif page == "Video Detection":
                     h264_path = output_path.replace(
                         ".mp4", "_h264.mp4"
                     )
-ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
+                    ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
                     conversion = subprocess.run(
                         [
                             ffmpeg_exe, "-y", "-i", output_path,
