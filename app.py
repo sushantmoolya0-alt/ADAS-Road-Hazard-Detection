@@ -123,10 +123,12 @@ elif page == "Image Detection":
         if st.button("Detect Road Hazards"):
             with st.spinner("Analyzing image..."):
                 results = model.predict(
-                    source=image,
-                    conf=confidence,
-                    verbose=False
-                )
+    source=image,
+    conf=confidence,
+    imgsz=640,
+    max_det=20,
+    verbose=False
+)
 
                 result = results[0]
                 annotated = result.plot()
