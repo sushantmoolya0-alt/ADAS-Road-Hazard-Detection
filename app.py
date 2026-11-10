@@ -7,6 +7,7 @@ import subprocess
 from PIL import Image
 from collections import Counter
 from ultralytics import YOLO
+import imageio_ffmpeg
 
 st.set_page_config(
     page_title="ADAS Road Hazard Detection",
@@ -284,10 +285,10 @@ elif page == "Video Detection":
                     h264_path = output_path.replace(
                         ".mp4", "_h264.mp4"
                     )
-
+ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
                     conversion = subprocess.run(
                         [
-                            "ffmpeg", "-y", "-i", output_path,
+                            ffmpeg_exe, "-y", "-i", output_path,
                             "-vcodec", "libx264",
                             "-pix_fmt", "yuv420p",
                             h264_path
